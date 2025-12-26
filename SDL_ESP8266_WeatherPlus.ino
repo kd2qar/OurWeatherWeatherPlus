@@ -24,6 +24,8 @@
 #define BLYNK_PRINT Serial // Defines the object that is used for printing
 #undef BLYNK_DEBUG
 #define BLYNK_USE_128_VPINS
+#define BLYNK_TEMPLATE_ID "00:00:00:00:00:00"
+#define BLYNK_TEMPLATE_NAME "NOPE"
 
 #include <BlynkSimpleEsp8266.h>
 
@@ -32,11 +34,13 @@
 #define OLED_Present
 
 // BOF preprocessor bug prevent - insert on top of your arduino-code
-#if 1
+#if 0
 __asm volatile ("nop");
+#else
+__asm  ("nop");
 #endif
 
-// Board options
+// Board options n\
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 

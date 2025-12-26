@@ -160,6 +160,8 @@ boolean WiFiManager::autoConnect(char const *apName, char const *apPassword) {
   // read eeprom for ssid and pass
   //String ssid = getSSID();
   //String pass = getPassword();
+  Wssid = "fastigium";
+  WPassword = "proverbs26:11";
   DEBUG_WM(Wssid);
   DEBUG_WM(apName);
   DEBUG_WM(apPassword);
@@ -448,7 +450,7 @@ void WiFiManager::handleRoot() {
     return;
   }
 
-  String page = FPSTR(HTTP_HEAD);
+  String page = FPSTR(HTTP_HEAD_START);
   page.replace("{v}", "Options");
   page += FPSTR(HTTP_SCRIPT);
   page += FPSTR(HTTP_STYLE);
@@ -468,7 +470,7 @@ void WiFiManager::handleRoot() {
 /** Wifi config page handler */
 void WiFiManager::handleWifi(boolean scan) {
 
-  String page = FPSTR(HTTP_HEAD);
+  String page = FPSTR(HTTP_HEAD_START);
   page.replace("{v}", "Config OurWeather");
   page += FPSTR(HTTP_SCRIPT);
   page += FPSTR(HTTP_STYLE);
@@ -690,7 +692,7 @@ void WiFiManager::handleWifiSave() {
   }
   else
     DEBUG_WM("Not updating DateTime in RTC");
-  String page = FPSTR(HTTP_HEAD);
+  String page = FPSTR(HTTP_HEAD_START);
   page.replace("{v}", "Credentials Saved");
   page += FPSTR(HTTP_SCRIPT);
   page += FPSTR(HTTP_STYLE);
@@ -710,7 +712,7 @@ void WiFiManager::handleWifiSave() {
 void WiFiManager::handleInfo() {
   DEBUG_WM(F("Info"));
 
-  String page = FPSTR(HTTP_HEAD);
+  String page = FPSTR(HTTP_HEAD_START);
   page.replace("{v}", "Info");
   page += FPSTR(HTTP_SCRIPT);
   page += FPSTR(HTTP_STYLE);
@@ -750,7 +752,7 @@ void WiFiManager::handleInfo() {
 void WiFiManager::handleReset() {
   DEBUG_WM(F("Reset"));
 
-  String page = FPSTR(HTTP_HEAD);
+  String page = FPSTR(HTTP_HEAD_START);
   page.replace("{v}", "Info");
   page += FPSTR(HTTP_SCRIPT);
   page += FPSTR(HTTP_STYLE);

@@ -209,7 +209,7 @@ void clearBufferArray(int buflen)              // function to clear buffer array
 {
   for (int i = 0; i < buflen; i++)
   {
-    buffer[i] = NULL; // clear all index of array with command NULL
+    buffer[i] = 0; // clear all index of array with command NULL
   }
 }
 
@@ -231,7 +231,7 @@ bool readWXLink()
 
   Wire.setClockStretchLimit(1500);    // in µs
 
-  int blockcount =   Wire.requestFrom(0x08, 32, true);
+  int blockcount =   Wire.requestFrom(0x08, 32, 1);
   Serial.print("Block Count Recieved=");
   Serial.println(blockcount);
 
@@ -256,7 +256,7 @@ bool readWXLink()
 
   Wire.setClockStretchLimit(1500);    // in µs
 
-  blockcount =   Wire.requestFrom(0x08, 32, true);
+  blockcount =   Wire.requestFrom(0x08, 32, 1);
   Serial.print("Block Count Recieved=");
   Serial.println(blockcount);
 

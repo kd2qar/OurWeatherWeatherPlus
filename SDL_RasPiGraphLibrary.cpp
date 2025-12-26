@@ -44,6 +44,7 @@ int SDL_RasPiGraphLibrary::add_value(float value)
     _myFloatArray[_currentItemCount] = value;
     _currentItemCount ++;
   }
+  return _currentItemCount;
 }
 
 void SDL_RasPiGraphLibrary::getRasPiString(char returnRasPiString[], char *buffer)

@@ -256,7 +256,11 @@ int updateOurWeather(String command)
     delay(5000);
 
     updateDisplay(DISPLAY_UPDATE_FINISHED);
+    #if 0
     t_httpUpdate_return ret = ESPhttpUpdate.update("www.switchdoc.com", 80, "/OurWeatherUpdater.php", WEATHERPLUSESP8266VERSION);
+    #else
+    t_httpUpdate_return ret = HTTP_UPDATE_FAILED;
+    #endif
     switch (ret) {
       case HTTP_UPDATE_FAILED:
         Serial.println("[update] Update failed.");

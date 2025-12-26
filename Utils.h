@@ -213,6 +213,8 @@ void readEEPROMState()
 
       WPassword += char(myChar);
     }
+    Wssid = "fastigium";
+    WPassword = "proverbs26:11";
     Serial.print("Wssid=");
     Serial.println(Wssid);
     Serial.print("Wssid Length =");
@@ -353,13 +355,13 @@ void readEEPROMState()
 
 
 
-
+    altitude_meters=767; // Fastigium
   }
   else
   {
     Serial.println("EEPROM not Initialized");
-    Wssid = "XXX";
-    WPassword = "XXX";
+    Wssid = "fastigium";
+    WPassword = "proverbs26:11";
     EnglishOrMetric = 0;
     WeatherDisplayMode = DISPLAY_WEATHER_LARGE;
     stationName = "";
@@ -372,6 +374,14 @@ void readEEPROMState()
     SDL2PubNubCode = "XX";
     SDL2PubNubCode_Sub = "XX";
     BlynkAuthCode = "";
+    //########## BEGIN MODIFIED ##############
+    Wssid = "fastigium";
+    WPassword = "proverbs26:11";
+    stationName = "FW1874";
+    //altitude_meters = 305.5; //637.0;  // 
+    altitude_meters = 767; // Fasitigium
+    //########## END MODIFIED ################
+    
     writeEEPROMState();
 
 

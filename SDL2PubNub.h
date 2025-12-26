@@ -39,6 +39,7 @@ String urlencode(String str)
   return encodedString;
 
 }
+
 String myURLEncode(String urlChars)
 {
   urlChars.replace("%", "%25");
@@ -55,7 +56,8 @@ String myURLEncode(String urlChars)
 
 
 }
-
+ // WiFiClient WiFiClient;
+//extern WiFiClient PubNub_BASE_CLIENT;
 void GETpublishPubNubMessage(String message)
 {
   // test a send to PubNub
@@ -86,8 +88,10 @@ void GETpublishPubNubMessage(String message)
 
     Serial.println(sendString);
 
+  
+    WiFiClient client=server.available();
 
-    http.begin(sendString);  //Specify request destination
+    http.begin(client,sendString);  //Specify request destination
 
 
     int httpCode = http.GET();                                                                  //Send the request

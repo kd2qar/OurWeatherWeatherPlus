@@ -181,6 +181,7 @@ class PubNub {
       d_uuid = 0;
       d_auth = 0;
       d_last_http_status_code_class = http_scc_unknown;
+      return true;
     }
 
     /**
@@ -572,6 +573,7 @@ retry:
       while (client.connected()) ;
       goto retry;
   }
+  return &client;
 }
 
 
